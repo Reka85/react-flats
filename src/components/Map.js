@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Marker from "./Marker";
 import GoogleMap from 'google-map-react';
+import PropTypes from "prop-types";
 
 class Map extends Component{
   static defaultProps = {
@@ -14,10 +15,17 @@ class Map extends Component{
           //apiKey={YOUR_GOOGLE_MAP_API_KEY} // set if you need stats etc ...
           center={this.props.center}
           zoom={this.props.zoom}>
-          <Marker lat={this.props.lat} lng={this.props.long} />
+          <Marker lat={this.props.lat} lng={this.props.lng} />
       </GoogleMap>
     );
   }
+}
+
+Map.propTypes = {
+  center: PropTypes.array,
+  zoom: PropTypes.number,
+  lat: PropTypes.number,
+  lng: PropTypes.number
 }
 
 export default Map;

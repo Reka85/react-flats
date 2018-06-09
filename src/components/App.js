@@ -9,14 +9,14 @@ class App extends Component {
     this.state = {
       selectedFlat: {
         lat: null,
-        long: null
+        lng: null
       }
     }
   }
 
-  onCardClick = (lat, long) =>{
+  onCardClick = (lat, lng) =>{
     this.setState({
-      selectedFlat: {lat:lat, long:long}
+      selectedFlat: {lat:lat, lng:lng}
       })
   }
   render(){
@@ -26,7 +26,7 @@ class App extends Component {
           <FlatList onCardClick={this.onCardClick}flats={flats}/>
         </div>
         <div className="map-container">
-           <Map lat={this.state.selectedFlat.lat} long={this.state.selectedFlat.long}/>
+           <Map lat={this.state.selectedFlat.lat} lng={this.state.selectedFlat.lng}/>
         </div>
       </div>
 
